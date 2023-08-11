@@ -1,0 +1,23 @@
+{
+  "name": "unocss-preset-tailwindcss",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "author": "jaskang",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@unocss/core": "^0.55.0",
+    "kotl": "^1.6.1"
+  },
+  "devDependencies": {
+    "@jaskang/config": "^2.0.0",
+    "@jaskang/eslint-config": "^2.0.0",
+    "eslint": "^8.46.0",
+    "prettier": "^3.0.1",
+    "typescript": "^5.1.6"
+  }
+}

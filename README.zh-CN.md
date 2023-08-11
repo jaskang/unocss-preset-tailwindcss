@@ -1,16 +1,15 @@
 # unocss-preset-tailwindcss
 
-A unocss preset that aligns with the official features of Tailwind, emphasizing consistency.
+一个与 tailwind 官方特性保持一致的 unocss preset，重点在于保持一致性。
 
-The goal is to seamlessly switch projects using Tailwind to unocss-preset-tailwindcss.
+需要尽可能做到使用 tailwind 的项目能够无缝切换到 unocss-preset-tailwindcss 。
 
 # Why
 
-Tailwind encompasses a set of highly standardized design specifications that I can't live without after using it. However, it lacks speed and feels a bit cumbersome.
+tailwind 包含了一套非常高标准的设计规范，使用过后我已经离不开它。但它不够快，略显笨重。
+unocss 很快，和前端工具链集成得更好。但官方的 `preset-wind` 没有严格遵循 tailwind 的规则，而是一个大杂烩，显得非常松散。
 
-Unocss, on the other hand, is fast and integrates better with the frontend toolchain. However, the official `preset-wind` doesn't strictly adhere to Tailwind's rules; it's a mishmash that feels quite loose.
-
-I want developers to be able to focus on Tailwind's official documentation while enjoying the advantages of unocss.
+我希望开发者只需要关注 tailwind 的官方文档，但同时又能享受到 unocss 的优势。
 
 ## 进展
 
