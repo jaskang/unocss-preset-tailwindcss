@@ -15,30 +15,30 @@ unocss 很快，和前端工具链集成得更好。但官方的 `preset-wind` �
 
 ### Base Styles
 
-Preflight
+- [] Preflight
 
 ### Layout
 
-Aspect Ratio
-Container
-Columns
-Break After
-Break Before
-Break Inside
-Box Decoration Break
-Box Sizing
-Display
-Floats
-Clear
-Isolation
-Object Fit
-Object Position
-Overflow
-Overscroll Behavior
-Position
-Top / Right / Bottom / Left
-Visibility
-Z-Index
+- [] Aspect Ratio
+- [] Container
+- [] Columns
+- [] Break After
+- [] Break Before
+- [] Break Inside
+- [] Box Decoration Break
+- [] Box Sizing
+- [] Display
+- [] Floats
+- [] Clear
+- [] Isolation
+- [] Object Fit
+- [] Object Position
+- [] Overflow
+- [] Overscroll Behavior
+- [] Position
+- [] Top / Right / Bottom / Left
+- [] Visibility
+- [] Z-Index
 
 ### Flexbox & Grid
 

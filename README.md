@@ -12,34 +12,34 @@ Unocss, on the other hand, is fast and integrates better with the frontend toolc
 
 I want developers to be able to focus on Tailwind's official documentation while enjoying the advantages of unocss.
 
-## 进展
+## Progress
 
 ### Base Styles
 
-Preflight
+- [] Preflight
 
 ### Layout
 
-Aspect Ratio
-Container
-Columns
-Break After
-Break Before
-Break Inside
-Box Decoration Break
-Box Sizing
-Display
-Floats
-Clear
-Isolation
-Object Fit
-Object Position
-Overflow
-Overscroll Behavior
-Position
-Top / Right / Bottom / Left
-Visibility
-Z-Index
+- [] Aspect Ratio
+- [] Container
+- [] Columns
+- [] Break After
+- [] Break Before
+- [] Break Inside
+- [] Box Decoration Break
+- [] Box Sizing
+- [] Display
+- [] Floats
+- [] Clear
+- [] Isolation
+- [] Object Fit
+- [] Object Position
+- [] Overflow
+- [] Overscroll Behavior
+- [] Position
+- [] Top / Right / Bottom / Left
+- [] Visibility
+- [] Z-Index
 
 ### Flexbox & Grid
 
