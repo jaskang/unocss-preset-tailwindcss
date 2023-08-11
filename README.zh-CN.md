@@ -6,9 +6,10 @@
 
 切换语言 : [English](./README.md) | [中文](./README.zh-CN.md)
 
-# Why
+# 为什么
 
 tailwind 包含了一套非常高标准的设计规范，使用过后我已经离不开它。但它不够快，略显笨重。
+
 unocss 很快，和前端工具链集成得更好。但官方的 `preset-wind` 没有严格遵循 tailwind 的规则，而是一个大杂烩，显得非常松散。
 
 我希望开发者只需要关注 tailwind 的官方文档，但同时又能享受到 unocss 的优势。
