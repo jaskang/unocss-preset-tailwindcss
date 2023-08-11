@@ -1,8 +1,10 @@
-# unocss-preset-tailwindcss
+# unocss-preset-tailwindcss (WIP)
 
 A unocss preset that aligns with the official features of Tailwind, emphasizing consistency.
 
 The goal is to seamlessly switch projects using Tailwind to unocss-preset-tailwindcss.
+
+check out : [English](./README.md) | [中文](./README.zh-CN.md)
 
 # Why
 

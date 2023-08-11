@@ -1,8 +1,10 @@
-# unocss-preset-tailwindcss
+# unocss-preset-tailwindcss (WIP)
 
 一个与 tailwind 官方特性保持一致的 unocss preset，重点在于保持一致性。
 
 需要尽可能做到使用 tailwind 的项目能够无缝切换到 unocss-preset-tailwindcss 。
+
+切换语言 : [English](./README.md) | [中文](./README.zh-CN.md)
 
 # Why
 
