@@ -295,4 +295,4 @@ export const colors = {
     900: '#881337',
     950: '#4c0519',
   },
-} satisfies Theme['colors']
+} as const

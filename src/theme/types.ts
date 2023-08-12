@@ -1,126 +1,180 @@
+import type { colors } from './colors'
 
+type KeyValuePair<K extends keyof any = string, V = string> = Record<K, V>
 
+interface RecursiveKeyValuePair<K extends keyof any = string, V = string> {
+  [key: string]: V | RecursiveKeyValuePair<K, V>
+}
+
+interface PluginUtils {
+  colors: typeof colors
+  theme(path: string, defaultValue?: unknown): any
+  breakpoints<I = Record<string, unknown>, O = I>(arg: I): O
+  rgb(arg: string): (arg: Partial<{ opacityVariable: string; opacityValue: number }>) => string
+  hsl(arg: string): (arg: Partial<{ opacityVariable: string; opacityValue: number }>) => string
+}
+
+export type ResolvableTo<T> = T | ((utils: PluginUtils) => T)
+
+type Screen = { raw: string } | { min: string } | { max: string } | { min: string; max: string }
+type ScreensConfig = string[] | KeyValuePair<string, string | Screen | Screen[]>
 
 export interface Theme {
-  accentColor: Record<string, string | Record<string, string>>,
-  animation: Record<string, string>,
-  aria: Record<string, string>,
-  aspectRatio: Record<string, string>,
-  backdropBlur:Record<string, string>,
-  backdropBrightness:Record<string, string>,
-  backdropContrast:Record<string, string>,
-  backdropGrayscale:Record<string, string>,
-  backdropHueRotate:Record<string, string>,
-  backdropInvert:Record<string, string>,
-  backdropOpacity:Record<string, string>,
-  backdropSaturate:Record<string, string>,
-  backdropSepia:Record<string, string>,
-  backgroundColor:Record<string, string>,
-  backgroundImage: Record<string, string>,
-  backgroundOpacity:Record<string, string>,
-  backgroundPosition: Record<string, string>,
-  backgroundSize: Record<string, string>,
-  blur: Record<string, string>,
-  borderColor: Record<string, string>,
-  borderOpacity:Record<string, string>,
-  borderRadius: Record<string, string>,
-  borderSpacing:Record<string, string>,
-  borderWidth: Record<string, string>,
-  boxShadow: Record<string, string>,
-  boxShadowColor:Record<string, string>,
-  brightness: Record<string, string>,
-  caretColor:Record<string, string>,
-  colors:Record<string, string>,
-  columns: Record<string, string>,
-  container: Record<string, string>,
-  content: Record<string, string>,
-  contrast: Record<string, string>,
-  cursor: Record<string, string>,
-  divideColor: Record<string, string>,
-  divideOpacity: Record<string, string>,
-  divideWidth: Record<string, string>,
-  dropShadow: Record<string, string>,
-  fill: Record<string, string>,,
-  flex: Record<string, string>,
-  flexBasis: Record<string, string>,,
-  flexGrow: Record<string, string>,
-  flexShrink: Record<string, string>,
-  fontFamily: Record<string, string>,
-  fontSize: Record<string, [string, Record<string, string>]>,
-  fontWeight: Record<string, string>,
-  gap: Record<string, string>,
-  gradientColorStops:Record<string, string>,
-  gradientColorStopPositions: Record<string, string>,
-  grayscale:Record<string, string>,
-  gridAutoColumns: Record<string, string>,
-  gridAutoRows: Record<string, string>,
-  gridColumn:Record<string, string>,
-  gridColumnEnd: Record<string, string>,
-  gridColumnStart: Record<string, string>,
-  gridRow: Record<string, string>,
-  gridRowEnd: Record<string, string>,
-  gridRowStart: Record<string, string>,
-  gridTemplateColumns: Record<string, string>,
-  gridTemplateRows: Record<string, string>,
-  height: Record<string, string>,,
-  hueRotate: Record<string, string>,
-  inset: Record<string, string>,
-  invert: Record<string, string>,
-  keyframes: Record<string, Record<string, Record<string, string>>>,
-  letterSpacing: Record<string, string>,
-  lineHeight: Record<string, string>,
-  listStyleType: Record<string, string>,
-  listStyleImage: Record<string, string>,
-  margin: Record<string, string>,
-  lineClamp: Record<string, string>,
-  maxHeight: Record<string, string>,
-  maxWidth: Record<string, string>,
-  minHeight: Record<string, string>,
-  minWidth: Record<string, string>,
-  objectPosition: Record<string, string>,
-  opacity:Record<string, string>,
-  order: Record<string, string>,
-  outlineColor: Record<string, string>,
-  outlineOffset: Record<string, string>,
-  outlineWidth: Record<string, string>,
-  padding: Record<string, string>,
-  placeholderColor: Record<string, string>,
-  placeholderOpacity: Record<string, string>,
-  ringColor: Record<string, string>,
-  ringOffsetColor: Record<string, string>,
-  ringOffsetWidth:Record<string, string>,
-  ringOpacity: Record<string, string>,
-  ringWidth: Record<string, string>,
-  rotate: Record<string, string>,
-  saturate: Record<string, string>,
-  scale: Record<string, string>,
-  screens: Record<string, string>,
-  scrollMargin: Record<string, string>,
-  scrollPadding: Record<string, string>,
-  sepia: Record<string, string>,
-  skew: Record<string, string>,
-  space: Record<string, string>,
-  spacing: Record<string, string>,
-  stroke: Record<string, string>,
-  strokeWidth:Record<string, string>,
-  supports: Record<string, string>,
-  data: Record<string, string>,
-  textColor: Record<string, string>,
-  textDecorationColor:Record<string, string>,
-  textDecorationThickness: Record<string, string>,
-  textIndent: Record<string, string>,
-  textOpacity: Record<string, string>,
-  textUnderlineOffset: Record<string, string>,
-  transformOrigin: Record<string, string>,
-  transitionDelay: Record<string, string>,
-  transitionDuration: Record<string, string>,
-  transitionProperty: Record<string, string>,
-  transitionTimingFunction: Record<string, string>,
-  translate: Record<string, string>,
-  width: Record<string, string>,
-  willChange: Record<string, string>,
-  zIndex: Record<string, string>,
+  // Responsiveness
+  screens: ResolvableTo<ScreensConfig>
+  supports: ResolvableTo<Record<string, string>>
+  data: ResolvableTo<Record<string, string>>
+
+  // Reusable base configs
+  colors: ResolvableTo<RecursiveKeyValuePair>
+  spacing: ResolvableTo<KeyValuePair>
+
+  // Components
+  container: ResolvableTo<
+    Partial<{
+      screens: ScreensConfig
+      center: boolean
+      padding: string | Record<string, string>
+    }>
+  >
+
+  // Utilities
+  inset: Theme['spacing']
+  zIndex: ResolvableTo<KeyValuePair>
+  order: ResolvableTo<KeyValuePair>
+  gridColumn: ResolvableTo<KeyValuePair>
+  gridColumnStart: ResolvableTo<KeyValuePair>
+  gridColumnEnd: ResolvableTo<KeyValuePair>
+  gridRow: ResolvableTo<KeyValuePair>
+  gridRowStart: ResolvableTo<KeyValuePair>
+  gridRowEnd: ResolvableTo<KeyValuePair>
+  margin: Theme['spacing']
+  aspectRatio: ResolvableTo<KeyValuePair>
+  height: Theme['spacing']
+  maxHeight: Theme['spacing']
+  minHeight: ResolvableTo<KeyValuePair>
+  width: Theme['spacing']
+  maxWidth: ResolvableTo<KeyValuePair>
+  minWidth: ResolvableTo<KeyValuePair>
+  flex: ResolvableTo<KeyValuePair>
+  flexShrink: ResolvableTo<KeyValuePair>
+  flexGrow: ResolvableTo<KeyValuePair>
+  flexBasis: Theme['spacing']
+  borderSpacing: Theme['spacing']
+  transformOrigin: ResolvableTo<KeyValuePair>
+  translate: Theme['spacing']
+  rotate: ResolvableTo<KeyValuePair>
+  skew: ResolvableTo<KeyValuePair>
+  scale: ResolvableTo<KeyValuePair>
+  animation: ResolvableTo<KeyValuePair>
+  keyframes: ResolvableTo<KeyValuePair<string, KeyValuePair<string, KeyValuePair>>>
+  cursor: ResolvableTo<KeyValuePair>
+  scrollMargin: Theme['spacing']
+  scrollPadding: Theme['spacing']
+  listStyleType: ResolvableTo<KeyValuePair>
+  columns: ResolvableTo<KeyValuePair>
+  gridAutoColumns: ResolvableTo<KeyValuePair>
+  gridAutoRows: ResolvableTo<KeyValuePair>
+  gridTemplateColumns: ResolvableTo<KeyValuePair>
+  gridTemplateRows: ResolvableTo<KeyValuePair>
+  gap: Theme['spacing']
+  space: Theme['spacing']
+  divideWidth: Theme['borderWidth']
+  divideColor: Theme['borderColor']
+  divideOpacity: Theme['borderOpacity']
+  borderRadius: ResolvableTo<KeyValuePair>
+  borderWidth: ResolvableTo<KeyValuePair>
+  borderColor: Theme['colors']
+  borderOpacity: Theme['opacity']
+  backgroundColor: Theme['colors']
+  backgroundOpacity: Theme['opacity']
+  backgroundImage: ResolvableTo<KeyValuePair>
+  gradientColorStops: Theme['colors']
+  backgroundSize: ResolvableTo<KeyValuePair>
+  backgroundPosition: ResolvableTo<KeyValuePair>
+  fill: Theme['colors']
+  stroke: Theme['colors']
+  strokeWidth: ResolvableTo<KeyValuePair>
+  objectPosition: ResolvableTo<KeyValuePair>
+  padding: Theme['spacing']
+  textIndent: Theme['spacing']
+  fontFamily: ResolvableTo<
+    KeyValuePair<
+      string,
+      | string
+      | string[]
+      | [
+          fontFamily: string | string[],
+          configuration: Partial<{
+            fontFeatureSettings: string
+            fontVariationSettings: string
+          }>,
+        ]
+    >
+  >
+  fontSize: ResolvableTo<
+    KeyValuePair<
+      string,
+      | string
+      | [fontSize: string, lineHeight: string]
+      | [
+          fontSize: string,
+          configuration: Partial<{
+            lineHeight: string
+            letterSpacing: string
+            fontWeight: string | number
+          }>,
+        ]
+    >
+  >
+  fontWeight: ResolvableTo<KeyValuePair>
+  lineHeight: ResolvableTo<KeyValuePair>
+  letterSpacing: ResolvableTo<KeyValuePair>
+  textColor: Theme['colors']
+  textOpacity: Theme['opacity']
+  textDecorationColor: Theme['colors']
+  textDecorationThickness: ResolvableTo<KeyValuePair>
+  textUnderlineOffset: ResolvableTo<KeyValuePair>
+  placeholderColor: Theme['colors']
+  placeholderOpacity: Theme['opacity']
+  caretColor: Theme['colors']
+  accentColor: Theme['colors']
+  opacity: ResolvableTo<KeyValuePair>
+  boxShadow: ResolvableTo<KeyValuePair>
+  boxShadowColor: Theme['colors']
+  outlineWidth: ResolvableTo<KeyValuePair>
+  outlineOffset: ResolvableTo<KeyValuePair>
+  outlineColor: Theme['colors']
+  ringWidth: ResolvableTo<KeyValuePair>
+  ringColor: Theme['colors']
+  ringOpacity: Theme['opacity']
+  ringOffsetWidth: ResolvableTo<KeyValuePair>
+  ringOffsetColor: Theme['colors']
+  blur: ResolvableTo<KeyValuePair>
+  brightness: ResolvableTo<KeyValuePair>
+  contrast: ResolvableTo<KeyValuePair>
+  dropShadow: ResolvableTo<KeyValuePair<string, string | string[]>>
+  grayscale: ResolvableTo<KeyValuePair>
+  hueRotate: ResolvableTo<KeyValuePair>
+  invert: ResolvableTo<KeyValuePair>
+  saturate: ResolvableTo<KeyValuePair>
+  sepia: ResolvableTo<KeyValuePair>
+  backdropBlur: Theme['blur']
+  backdropBrightness: Theme['brightness']
+  backdropContrast: Theme['contrast']
+  backdropGrayscale: Theme['grayscale']
+  backdropHueRotate: Theme['hueRotate']
+  backdropInvert: Theme['invert']
+  backdropOpacity: Theme['opacity']
+  backdropSaturate: Theme['saturate']
+  backdropSepia: Theme['sepia']
+  transitionProperty: ResolvableTo<KeyValuePair>
+  transitionTimingFunction: ResolvableTo<KeyValuePair>
+  transitionDelay: ResolvableTo<KeyValuePair>
+  transitionDuration: ResolvableTo<KeyValuePair>
+  willChange: ResolvableTo<KeyValuePair>
+  content: ResolvableTo<KeyValuePair>
 
   // Custom
-  [key: string]: any
+  [key: string]: unknown
 }

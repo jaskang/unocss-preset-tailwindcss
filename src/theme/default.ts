@@ -1,36 +1,10 @@
-import { colors } from './colors'
-import { blur, dropShadow } from './filters'
-import {
-  fontFamily,
-  fontSize,
-  fontWeight,
-  letterSpacing,
-  lineHeight,
-  textIndent,
-  textShadow,
-  textStrokeWidth,
-  wordSpacing,
-} from './font'
-import {
-  borderRadius,
-  boxShadow,
-  breakpoints,
-  duration,
-  easing,
-  lineWidth,
-  ringWidth,
-  spacing,
-  verticalBreakpoints,
-} from './misc'
-import { preflightBase } from './preflight'
-import { containers, height, maxHeight, maxWidth, width } from './size'
 import type { Theme } from './types'
 
-export const theme = {
-  accentColor: {
-    ...colors,
+export const theme: Theme = {
+  accentColor: ({ theme }) => ({
+    ...theme('colors'),
     auto: 'auto',
-  },
+  }),
   animation: {
     none: 'none',
     spin: 'spin 1s linear infinite',
@@ -54,7 +28,7 @@ export const theme = {
     square: '1 / 1',
     video: '16 / 9',
   },
-  backdropBlur: blur,
+  backdropBlur: ({ theme }) => theme('blur'),
   backdropBrightness: ({ theme }) => theme('brightness'),
   backdropContrast: ({ theme }) => theme('contrast'),
   backdropGrayscale: ({ theme }) => theme('grayscale'),
@@ -92,7 +66,17 @@ export const theme = {
     cover: 'cover',
     contain: 'contain',
   },
-  blur: blur,
+  blur: {
+    0: '0',
+    none: '0',
+    sm: '4px',
+    DEFAULT: '8px',
+    md: '12px',
+    lg: '16px',
+    xl: '24px',
+    '2xl': '40px',
+    '3xl': '64px',
+  },
   borderColor: ({ theme }) => ({
     ...theme('colors'),
     DEFAULT: theme('colors.gray.200', 'currentColor'),
@@ -1005,4 +989,4 @@ export const theme = {
     40: '40',
     50: '50',
   },
-} satisfies Theme
+}
