@@ -7,7 +7,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+    "origin": "node ./scripts/config.js"
   },
   "dependencies": {
     "@unocss/core": "^0.55.0",
