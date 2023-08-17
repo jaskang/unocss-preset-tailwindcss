@@ -5,6 +5,7 @@
     "unocss-preset-tailwindcss": "0.0.1-beta.0"
   },
   "changesets": [
-    "lovely-peas-develop"
+    "lovely-peas-develop",
+    "soft-papayas-compare"
   ]
 }
