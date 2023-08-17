@@ -1,5 +1,11 @@
 # unocss-preset-tailwindcss
 
+## 0.0.1-beta.3
+
+### Patch Changes
+
+- [`afd2ff6`](https://github.com/JasKang/unocss-preset-tailwindcss/commit/afd2ff6b76a05e079d9d09b29fc4654d4bfcd5b4) Thanks [@JasKang](https://github.com/JasKang)! - new ver
+
 ## 0.0.1-beta.2
 
 ### Patch Changes
