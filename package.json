@@ -1,6 +1,6 @@
 {
   "name": "unocss-preset-tailwindcss",
-  "version": "0.0.2",
+  "version": "0.0.1-beta.0",
   "description": "",
   "keywords": [],
   "author": "jaskang",
@@ -10,6 +10,7 @@
     "build": "tsup",
     "test": "vitest",
     "change": "pnpm changeset",
+    "change:beta": "pnpm changeset pre enter beta",
     "release": "pnpm build && changeset publish"
   },
   "dependencies": {
