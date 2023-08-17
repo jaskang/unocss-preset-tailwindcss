@@ -1,3 +1,5 @@
+import type { FullTheme } from './types'
+
 function breakpoints(screens: Record<string, string>) {
   return Object.keys(screens)
     .filter(key => typeof screens[key] === 'string')
@@ -10,24 +12,25 @@ function breakpoints(screens: Record<string, string>) {
     )
 }
 
-export const extendTheme = (theme: Theme) => {
+export const extendTheme = (theme: FullTheme) => {
   theme.accentColor = {
     ...theme.colors,
     auto: 'auto',
   }
   theme.backgroundColor = theme.colors
-  theme.borderColor = { ...theme.colors, DEFAULT: theme.colors.gray[200] }
+  theme.borderColor = { ...theme.colors, DEFAULT: theme.colors.gray[200]! }
   theme.boxShadowColor = theme.colors
   theme.caretColor = theme.colors
   theme.fill = { ...theme.colors, none: 'none' }
   theme.gradientColorStops = theme.colors
   theme.outlineColor = theme.colors
   theme.placeholderColor = theme.colors
-  theme.ringColor = { ...theme.colors, DEFAULT: theme.colors.blue[500] }
+  theme.ringColor = { ...theme.colors, DEFAULT: theme.colors.blue[500]! }
   theme.ringOffsetColor = theme.colors
   theme.stroke = { ...theme.colors, none: 'none' }
   theme.textColor = theme.colors
   theme.textDecorationColor = theme.colors
+  theme.divideColor = theme.borderColor
 
   theme.backgroundOpacity = theme.opacity
   theme.backdropOpacity = theme.opacity
@@ -35,6 +38,7 @@ export const extendTheme = (theme: Theme) => {
   theme.placeholderOpacity = theme.opacity
   theme.ringOpacity = { ...theme.opacity, DEFAULT: '0.5' }
   theme.textOpacity = theme.opacity
+  theme.divideOpacity = theme.borderOpacity
 
   theme.backdropBlur = theme.blur
   theme.backdropBrightness = theme.brightness
@@ -44,18 +48,16 @@ export const extendTheme = (theme: Theme) => {
   theme.backdropInvert = theme.invert
   theme.backdropSaturate = theme.saturate
   theme.backdropSepia = theme.sepia
-  theme.divideColor = theme.borderColor
-  theme.divideOpacity = theme.borderOpacity
   theme.divideWidth = theme.borderWidth
 
   theme.margin = { ...theme.spacing, auto: 'auto' }
-  theme.borderSpacing = theme.spacing
-  theme.gap = theme.spacing
   theme.padding = theme.spacing
-  theme.scrollMargin = theme.spacing
-  theme.scrollPadding = theme.spacing
+  theme.gap = theme.spacing
   theme.space = theme.spacing
   theme.textIndent = theme.spacing
+  theme.borderSpacing = theme.spacing
+  theme.scrollMargin = theme.spacing
+  theme.scrollPadding = theme.spacing
   theme.translate = {
     ...theme.spacing,
     '1/2': '50%',

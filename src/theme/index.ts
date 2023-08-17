@@ -1,3 +1,4 @@
 export { colors } from './colors'
 export { theme } from './default'
-export { type Theme } from './types'
+export { extendTheme } from './extendTheme'
+export { type FullTheme, type Theme } from './types'

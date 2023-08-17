@@ -1,8 +1,6 @@
 // based on the colors from Tailwind CSS
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/public/colors.js
 
-import type { Theme } from './types'
-
 export const colors = {
   inherit: 'inherit',
   current: 'currentColor',
