@@ -25,7 +25,10 @@ export interface Theme {
   boxShadow: ThemeValue
   brightness: ThemeValue
   columns: ThemeValue
-  container: ThemeValue
+  container: {
+    center?: boolean
+    padding?: ThemeValue | string
+  }
   content: ThemeValue
   contrast: ThemeValue
   cursor: ThemeValue

@@ -1,7 +1,8 @@
 import type { Preset } from '@unocss/core'
 
-import { rules } from './rules'
+import { rules, shortcuts } from './rules'
 import { extendTheme, type Theme, theme } from './theme'
+import { variants } from './variants'
 
 export { type Theme }
 
@@ -11,6 +12,8 @@ export function presetTailwindcss(): Preset<Theme> {
     theme: theme,
     extendTheme: extendTheme as (t: Theme) => void,
     rules: rules,
+    shortcuts: shortcuts,
+    variants: variants,
   }
 }
 
