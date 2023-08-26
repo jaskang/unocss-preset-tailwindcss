@@ -9,11 +9,11 @@ export const screensVariant: VariantObject<Theme> = {
       ([point, size], idx) => [point, size, idx]
     )
     const screen = screens.find(([point]) => matcher.startsWith(`${point}:`))
-
     if (screen) {
       const [point, size, idx] = screen
       const m = matcher.slice(point.length + 1)
       const order = 1000 + idx + 1
+      console.log('screen', screen, m, order)
       return {
         matcher: m,
         handle: (input, next) =>
