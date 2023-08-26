@@ -2,29 +2,6 @@ import { type CSSObject, type Rule, type Shortcut, type VariantHandlerContext } 
 import { type Data, isString } from 'kotl'
 
 import type { Theme } from '../theme'
-import { bracketValue } from '../theme/utils'
-
-export const aspectRatio: Rule<Theme>[] = [
-  [
-    /^aspect-?(.+)$/,
-    ([, d]: string[], { theme }) => {
-      const values: Data = theme.aspectRatio
-      if (values[d]) {
-        return {
-          'aspect-ratio': values[d],
-        }
-      }
-
-      const custom = bracketValue(d)
-      if (custom) {
-        return {
-          'aspect-ratio': custom,
-        }
-      }
-    },
-    { autocomplete: ['aspect-$aspectRatio'] },
-  ],
-]
 
 export const container: Rule<Theme>[] = [
   [
@@ -35,13 +12,11 @@ export const container: Rule<Theme>[] = [
       const { theme, variantHandlers } = context
       const themePadding: Data =
         typeof theme.container.padding === 'string'
-          ? {
-              DEFAULT: theme.container.padding,
-            }
+          ? { DEFAULT: theme.container.padding }
           : Object.assign({}, theme.container.padding)
 
       let padding = themePadding.DEFAULT
-      let maxWidth: string | undefined
+      let maxWidth = '100%'
 
       for (const v of variantHandlers) {
         const query = v.handle?.({} as VariantHandlerContext, x => x)?.parent
@@ -61,19 +36,13 @@ export const container: Rule<Theme>[] = [
 
       const css: CSSObject = {
         'max-width': maxWidth,
+        'padding-left': padding,
+        'padding-right': padding,
       }
-
-      // only apply width: 100% when no variant handler is present
-      if (!variantHandlers.length) css.width = '100%'
 
       if (theme.container?.center) {
         css['margin-left'] = 'auto'
         css['margin-right'] = 'auto'
-      }
-
-      if (padding) {
-        css['padding-left'] = padding
-        css['padding-right'] = padding
       }
 
       return css

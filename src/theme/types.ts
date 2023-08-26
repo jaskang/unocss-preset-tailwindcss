@@ -1,3 +1,5 @@
+import type { Expand } from 'kotl'
+
 type ColorLv = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950
 type ThemeColorValue = Record<
   string,
@@ -8,10 +10,8 @@ type ThemeColorValue = Record<
 >
 type ThemeValue = Record<string, string>
 type ThemeArrayValue = Record<string, string | string[]>
-/**
- * ({ theme }) => theme('key') 标识从 theme 中获取 key 对应的值
- */
-export interface Theme {
+
+type BaseTheme = {
   colors: ThemeColorValue
   animation: ThemeValue
   aria: ThemeValue
@@ -25,10 +25,7 @@ export interface Theme {
   boxShadow: ThemeValue
   brightness: ThemeValue
   columns: ThemeValue
-  container: {
-    center?: boolean
-    padding?: ThemeValue | string
-  }
+  container: { center?: boolean; padding?: ThemeValue | string }
   content: ThemeValue
   contrast: ThemeValue
   cursor: ThemeValue
@@ -89,7 +86,7 @@ export interface Theme {
   zIndex: ThemeValue
 }
 
-export interface FullTheme extends Theme {
+export type Theme = Expand<BaseTheme> & {
   accentColor: ThemeColorValue
   backgroundColor: ThemeColorValue
   borderColor: ThemeColorValue
@@ -141,3 +138,5 @@ export interface FullTheme extends Theme {
   maxHeight: ThemeValue
   maxWidth: ThemeValue
 }
+
+export type UserTheme = Partial<BaseTheme>

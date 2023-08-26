@@ -1,6 +1,6 @@
 import { createGenerator } from '@unocss/core'
 
-import { presetTailwindcss } from '../src'
+import { presetTailwindcss, type Theme } from '../src'
 
 const uno = createGenerator({
   presets: [presetTailwindcss()],
@@ -55,7 +55,7 @@ describe('presetTailwind layout', () => {
   })
 
   test('centered containers', async () => {
-    const uno = createGenerator({
+    const uno = createGenerator<Theme>({
       presets: [presetTailwindcss()],
       theme: {
         container: {
