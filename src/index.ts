@@ -6,7 +6,7 @@ import { variants } from './variants'
 
 export { type Theme }
 
-export function presetTailwindcss(): Preset<Theme> {
+export function presetTailwindcss() {
   return {
     name: 'unocss-preset-tailwindcss',
     theme: theme,
@@ -14,7 +14,7 @@ export function presetTailwindcss(): Preset<Theme> {
     rules: rules,
     shortcuts: shortcuts,
     variants: variants,
-  }
+  } as Preset<Partial<Theme>>
 }
 
 export default presetTailwindcss

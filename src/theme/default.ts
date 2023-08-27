@@ -1,7 +1,7 @@
 import { colors } from './colors'
 import type { Theme } from './types'
 
-export const theme: Theme = {
+export const theme: Partial<Theme> = {
   colors: colors,
   animation: {
     none: 'none',

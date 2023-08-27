@@ -1,4 +1,4 @@
-import type { FullTheme, Theme } from './types'
+import type { Theme } from './types'
 
 function breakpoints(screens: Record<string, string>) {
   return Object.keys(screens)
