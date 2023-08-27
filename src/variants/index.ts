@@ -1,4 +1,4 @@
+import { breakpointsVariant } from './breakpoints'
 import { pseudoVariant } from './pseudoClasses'
-import { screensVariant } from './screens'
 
-export const variants = [screensVariant, pseudoVariant]
+export const variants = [breakpointsVariant, pseudoVariant]

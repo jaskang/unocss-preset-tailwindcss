@@ -1,66 +1,60 @@
-import {
-  type CSSObject,
-  entriesToCss,
-  normalizeCSSEntries,
-  normalizeCSSValues,
-  type Rule,
-  toEscapedSelector,
-} from '@unocss/core'
+import { type CSSObject, type Rule, type Shortcut, type VariantHandlerContext } from '@unocss/core'
 import { type Data, isString } from 'kotl'
 
 import type { Theme } from '../theme'
 
+const queryMatcher = /@media \(min-width: (.+)\)/
+
 export const container: Rule<Theme>[] = [
   [
-    /^container$/,
+    /^__container$/,
     (m, context) => {
-      const { theme } = context
+      const { theme, variantHandlers } = context
       const themePadding: Data =
         typeof theme.container.padding === 'string'
           ? { DEFAULT: theme.container.padding }
           : Object.assign({}, theme.container.padding)
 
-      const main: CSSObject = { width: '100%' }
+      const css: CSSObject = {}
+
+      for (const v of variantHandlers) {
+        const query = v.handle?.({} as VariantHandlerContext, x => x)?.parent
+        if (isString(query)) {
+          const match = query.match(queryMatcher)?.[1]
+          const bp = Object.keys(theme.screens).find(key => theme.screens[key] === match)
+          const val = theme.screens[bp || '__xxxx__']
+          if (bp) {
+            css['max-width'] = val
+            if (themePadding[bp]) {
+              css.padding = themePadding[bp]
+            }
+            break
+          }
+        }
+      }
+
       if (theme.container?.center) {
-        main['margin-left'] = 'auto'
-        main['margin-right'] = 'auto'
+        css['margin-left'] = 'auto'
+        css['margin-right'] = 'auto'
       }
       if (themePadding.DEFAULT) {
-        main.padding = themePadding.DEFAULT
+        css.padding = themePadding.DEFAULT
       }
-
-      const selector = toEscapedSelector(context.rawSelector)
-
-      const mainCss = normalizeCSSEntries(main)
-      let css = `${selector}{${isString(mainCss) ? mainCss : entriesToCss(mainCss)}}\n`
-
-      Object.keys(theme.screens).forEach(s => {
-        const screen = theme.screens[s]
-        const sPadding = themePadding[s]
-        const sCss = `@media (min-width: ${screen}){${selector}{max-width: ${screen};${
-          sPadding ? `padding: ${sPadding};` : ''
-        }}}\n`
-        css += sCss
-      })
-      console.log('container', context.variantHandlers)
+      if (!variantHandlers.length) css.width = '100%'
       return css
     },
-    { autocomplete: ['container'], layer: 'components' },
+    { internal: true, layer: 'components' },
   ],
 ]
 
-// export const containerShortcuts: Shortcut<Theme>[] = [
-//   [
-//     /^(?:(\w+)[:-])?container$/,
-//     ([, bp], context) => {
-//       let points = Object.keys(context.theme.screens)
-//       if (bp) {
-//         if (!points.includes(bp)) return
-//         points = points.slice(points.indexOf(bp))
-//       }
-//       const shortcuts = points.map(p => `${p}:__container`)
-//       if (!bp) shortcuts.unshift('__container')
-//       return shortcuts
-//     },
-//   ],
-// ]
+export const containerShortcuts: Shortcut<Theme>[] = [
+  [
+    /^container$/,
+    (m, context) => {
+      const points = Object.keys(context.theme.screens)
+      const shortcuts = points.map(p => `${p}:__container`)
+      shortcuts.unshift('__container')
+      return shortcuts
+    },
+  ],
+]
