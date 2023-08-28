@@ -1,5 +1,11 @@
 # unocss-preset-tailwindcss
 
+## 0.0.1-beta.4
+
+### Patch Changes
+
+- [`58a71bb`](https://github.com/JasKang/unocss-preset-tailwindcss/commit/58a71bb22e5f316ac4597cc6dd66f28448a30eb6) Thanks [@JasKang](https://github.com/JasKang)! - feat: flex
+
 ## 0.0.1-beta.3
 
 ### Patch Changes
