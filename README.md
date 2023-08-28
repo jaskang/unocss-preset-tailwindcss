@@ -22,35 +22,35 @@ I want developers to be able to focus on Tailwind's official documentation while
 
 ### Layout
 
-- [] Aspect Ratio
-- [] Container
-- [] Columns
-- [] Break After
-- [] Break Before
-- [] Break Inside
-- [] Box Decoration Break
-- [] Box Sizing
-- [] Display
-- [] Floats
-- [] Clear
-- [] Isolation
-- [] Object Fit
-- [] Object Position
-- [] Overflow
-- [] Overscroll Behavior
-- [] Position
-- [] Top / Right / Bottom / Left
-- [] Visibility
-- [] Z-Index
+- [x] Aspect Ratio
+- [x] Container
+- [x] Columns
+- [x] Break After
+- [x] Break Before
+- [x] Break Inside
+- [x] Box Decoration Break
+- [x] Box Sizing
+- [x] Display
+- [x] Floats
+- [x] Clear
+- [x] Isolation
+- [x] Object Fit
+- [x] Object Position
+- [x] Overflow
+- [x] Overscroll Behavior
+- [x] Position
+- [x] Top / Right / Bottom / Left
+- [x] Visibility
+- [x] Z-Index
 
 ### Flexbox & Grid
 
-- [] Flex Basis
-- [] Flex Direction
-- [] Flex Wrap
-- [] Flex
-- [] Flex Grow
-- [] Flex Shrink
+- [x] Flex Basis
+- [x] Flex Direction
+- [x] Flex Wrap
+- [x] Flex
+- [x] Flex Grow
+- [x] Flex Shrink
 - [] Order
 - [] Grid Template Columns
 - [] Grid Column Start / End
