@@ -2,6 +2,7 @@ import type { Rule, Shortcut } from '@unocss/core'
 
 import type { Theme } from '../theme'
 import { container, containerShortcuts } from './container'
+import { inset } from './inset'
 import {
   aspectRatio,
   boxDecorationBreak,
@@ -24,8 +25,8 @@ import {
 } from './simples'
 
 export const rules: Rule<Theme>[] = [
-  container,
   ...aspectRatio,
+  container,
   ...columns,
   ...breakAfter,
   ...breakBefore,
@@ -41,6 +42,7 @@ export const rules: Rule<Theme>[] = [
   ...overflow,
   ...overscrollBehavior,
   ...position,
+  ...inset,
   ...visibility,
   ...zIndex,
 ]

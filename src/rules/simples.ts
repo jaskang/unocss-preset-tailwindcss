@@ -5,11 +5,11 @@ import { maybeCustom, type Theme } from '../theme'
 export const aspectRatio: Rule<Theme>[] = [
   [
     /^aspect-?(.+)$/,
-    ([, d]: string[], { theme }) => {
-      if (theme.aspectRatio[d]) {
-        return { 'aspect-ratio': theme.aspectRatio[d] }
+    ([, v]: string[], { theme }) => {
+      if (theme.aspectRatio[v]) {
+        return { 'aspect-ratio': theme.aspectRatio[v] }
       }
-      return maybeCustom('aspect-ratio', d)
+      return maybeCustom('aspect-ratio', v)
     },
     { autocomplete: ['aspect-$aspectRatio'] },
   ],
@@ -18,11 +18,11 @@ export const aspectRatio: Rule<Theme>[] = [
 export const columns: Rule<Theme>[] = [
   [
     /^columns-?(.+)$/,
-    ([, d]: string[], { theme }) => {
-      if (theme.columns[d]) {
-        return { columns: theme.columns[d] }
+    ([, v]: string[], { theme }) => {
+      if (theme.columns[v]) {
+        return { columns: theme.columns[v] }
       }
-      return maybeCustom('columns', d)
+      return maybeCustom('columns', v)
     },
     { autocomplete: ['columns-$columns'] },
   ],
@@ -120,11 +120,11 @@ export const objectFit: Rule<Theme>[] = [
 export const objectPosition: Rule<Theme>[] = [
   [
     /^object-?(.+)$/,
-    ([, d]: string[], { theme }) => {
-      if (theme.objectPosition[d]) {
-        return { objectPosition: theme.objectPosition[d] }
+    ([, v]: string[], { theme }) => {
+      if (theme.objectPosition[v]) {
+        return { objectPosition: theme.objectPosition[v] }
       }
-      return maybeCustom('objectPosition', d)
+      return maybeCustom('objectPosition', v)
     },
     { autocomplete: ['columns-$objectPosition'] },
   ],
@@ -177,11 +177,11 @@ export const visibility: Rule<Theme>[] = [
 export const zIndex: Rule<Theme>[] = [
   [
     /^z-?(.+)$/,
-    ([, d]: string[], { theme }) => {
-      if (theme.zIndex[d]) {
-        return { zIndex: theme.zIndex[d] }
+    ([, v]: string[], { theme }) => {
+      if (theme.zIndex[v]) {
+        return { zIndex: theme.zIndex[v] }
       }
-      return maybeCustom('zIndex', d)
+      return maybeCustom('zIndex', v)
     },
     { autocomplete: ['z-$zIndex'] },
   ],
