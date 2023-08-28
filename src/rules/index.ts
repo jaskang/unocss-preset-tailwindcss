@@ -1,6 +1,6 @@
 import type { Rule, Shortcut } from '@unocss/core'
 
-import type { Theme } from '../theme'
+import type { FullTheme } from '../theme'
 import { container, containerShortcuts } from './container'
 import { inset } from './inset'
 import {
@@ -30,7 +30,7 @@ import {
   zIndex,
 } from './simples'
 
-export const rules: Rule<Theme>[] = [
+export const rules: Rule<FullTheme>[] = [
   // Layout
   ...aspectRatio,
   container,
@@ -61,4 +61,4 @@ export const rules: Rule<Theme>[] = [
   ...flexShrink,
 ]
 
-export const shortcuts: Shortcut<Theme>[] = [containerShortcuts]
+export const shortcuts: Shortcut<FullTheme>[] = [containerShortcuts]

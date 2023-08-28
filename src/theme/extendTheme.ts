@@ -1,4 +1,4 @@
-import type { Theme } from './types'
+import type { FullTheme } from './types'
 
 function breakpoints(screens: Record<string, string>) {
   return Object.keys(screens)
@@ -12,7 +12,7 @@ function breakpoints(screens: Record<string, string>) {
     )
 }
 
-export const extendTheme = (theme: Theme) => {
+export const extendTheme = (theme: FullTheme) => {
   theme.accentColor = {
     ...theme.colors,
     auto: 'auto',

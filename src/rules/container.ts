@@ -1,11 +1,11 @@
 import { type CSSObject, type Rule, type Shortcut, type VariantHandlerContext } from '@unocss/core'
 import { type Data, isString } from 'kotl'
 
-import type { Theme } from '../theme'
+import type { FullTheme } from '../theme'
 
 const queryMatcher = /@media \(min-width: (.+)\)/
 
-export const container: Rule<Theme> = [
+export const container: Rule<FullTheme> = [
   /^__container$/,
   (m, context) => {
     const { theme, variantHandlers } = context
@@ -45,10 +45,10 @@ export const container: Rule<Theme> = [
   { internal: true, layer: 'components' },
 ]
 
-export const containerShortcuts: Shortcut<Theme> = [
+export const containerShortcuts: Shortcut<FullTheme> = [
   /^container$/,
-  (m, context) => {
-    const points = Object.keys(context.theme.screens)
+  (m, { theme }) => {
+    const points = Object.keys(theme.screens)
     const shortcuts = points.map(p => `${p}:__container`)
     shortcuts.unshift('__container')
     return shortcuts

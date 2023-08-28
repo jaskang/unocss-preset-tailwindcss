@@ -1,8 +1,8 @@
 import type { VariantObject } from '@unocss/core'
 
-import type { Theme } from '../theme/types'
+import type { FullTheme } from '../theme/types'
 
-export const breakpointsVariant: VariantObject<Theme> = {
+export const breakpointsVariant: VariantObject<FullTheme> = {
   name: 'breakpoints',
   match(matcher, context) {
     const screens: Array<[string, string, number]> = Object.entries(context.theme.screens).map(

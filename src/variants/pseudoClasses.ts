@@ -1,6 +1,6 @@
 import type { VariantObject } from '@unocss/core'
 
-import type { Theme } from '../theme'
+import type { FullTheme } from '../theme'
 
 const excludedPseudo = [
   '::-webkit-resizer',
@@ -79,7 +79,7 @@ const PseudoClasses = [
 const PseudoClassesKeys = Object.keys(PseudoClasses)
 const PseudoClassesKeysStr = PseudoClassesKeys.join('|')
 
-export const pseudoVariant: VariantObject<Theme> = {
+export const pseudoVariant: VariantObject<FullTheme> = {
   name: 'pseudo',
   match: input => {
     const pseudoClassesAndElementsRE = new RegExp(`^(${PseudoClassesKeysStr})(?::)`)

@@ -1,8 +1,8 @@
 import { type Rule } from '@unocss/core'
 
-import { bracketValue, maybeCustom, type Theme } from '../theme'
+import { bracketValue, type FullTheme, maybeCustom } from '../theme'
 
-export const inset: Rule<Theme>[] = [
+export const inset: Rule<FullTheme>[] = [
   [
     /^(start|end)-(.+)$/,
     ([, d, v], { theme }) => {

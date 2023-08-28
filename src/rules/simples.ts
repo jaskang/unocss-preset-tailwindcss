@@ -1,8 +1,8 @@
 import { type Rule } from '@unocss/core'
 
-import { maybeCustom, type Theme } from '../theme'
+import { type FullTheme, maybeCustom } from '../theme'
 
-export const aspectRatio: Rule<Theme>[] = [
+export const aspectRatio: Rule<FullTheme>[] = [
   [
     /^aspect-?(.+)$/,
     ([, v]: string[], { theme }) => {
@@ -15,7 +15,7 @@ export const aspectRatio: Rule<Theme>[] = [
   ],
 ]
 
-export const columns: Rule<Theme>[] = [
+export const columns: Rule<FullTheme>[] = [
   [
     /^columns-?(.+)$/,
     ([, v]: string[], { theme }) => {
@@ -28,7 +28,7 @@ export const columns: Rule<Theme>[] = [
   ],
 ]
 
-export const breakAfter: Rule<Theme>[] = [
+export const breakAfter: Rule<FullTheme>[] = [
   ['break-after-auto', { 'break-after': 'auto' }],
   ['break-after-avoid', { 'break-after': 'avoid' }],
   ['break-after-all', { 'break-after': 'all' }],
@@ -39,7 +39,7 @@ export const breakAfter: Rule<Theme>[] = [
   ['break-after-column', { 'break-after': 'column' }],
 ]
 
-export const breakBefore: Rule<Theme>[] = [
+export const breakBefore: Rule<FullTheme>[] = [
   ['break-before-auto', { 'break-before': 'auto' }],
   ['break-before-avoid', { 'break-before': 'avoid' }],
   ['break-before-all', { 'break-before': 'all' }],
@@ -50,24 +50,24 @@ export const breakBefore: Rule<Theme>[] = [
   ['break-before-column', { 'break-before': 'column' }],
 ]
 
-export const breakInside: Rule<Theme>[] = [
+export const breakInside: Rule<FullTheme>[] = [
   ['break-inside-auto', { 'break-inside': 'auto' }],
   ['break-inside-avoid', { 'break-inside': 'avoid' }],
   ['break-inside-avoid-page', { 'break-inside': 'avoid-page' }],
   ['break-inside-avoid-column', { 'break-inside': 'avoid-column' }],
 ]
 
-export const boxDecorationBreak: Rule<Theme>[] = [
+export const boxDecorationBreak: Rule<FullTheme>[] = [
   ['decoration-slice', { 'box-decoration-break': 'slice' }],
   ['decoration-clone', { 'box-decoration-break': 'clone' }],
 ]
 
-export const boxSizing: Rule<Theme>[] = [
+export const boxSizing: Rule<FullTheme>[] = [
   ['box-border', { 'box-sizing': 'border-box' }],
   ['box-content', { 'box-sizing': 'content-box' }],
 ]
 
-export const display: Rule<Theme>[] = [
+export const display: Rule<FullTheme>[] = [
   ['block', { display: 'block' }],
   ['inline-block', { display: 'inline-block' }],
   ['inline', { display: 'inline' }],
@@ -91,25 +91,25 @@ export const display: Rule<Theme>[] = [
   ['hidden', { display: 'none' }],
 ]
 
-export const floats: Rule<Theme>[] = [
+export const floats: Rule<FullTheme>[] = [
   ['float-right', { float: 'right' }],
   ['float-left', { float: 'left' }],
   ['float-none', { float: 'none' }],
 ]
 
-export const clear: Rule<Theme>[] = [
+export const clear: Rule<FullTheme>[] = [
   ['clear-left', { clear: 'left' }],
   ['clear-right', { clear: 'right' }],
   ['clear-both', { clear: 'both' }],
   ['clear-none', { clear: 'none' }],
 ]
 
-export const isolation: Rule<Theme>[] = [
+export const isolation: Rule<FullTheme>[] = [
   ['isolate', { isolation: 'isolate' }],
   ['isolation-auto', { isolation: 'auto' }],
 ]
 
-export const objectFit: Rule<Theme>[] = [
+export const objectFit: Rule<FullTheme>[] = [
   ['object-contain', { 'object-fit': 'contain' }],
   ['object-cover', { 'object-fit': 'cover' }],
   ['object-fill', { 'object-fit': 'fill' }],
@@ -117,7 +117,7 @@ export const objectFit: Rule<Theme>[] = [
   ['object-scale-down', { 'object-fit': 'scale-down' }],
 ]
 
-export const objectPosition: Rule<Theme>[] = [
+export const objectPosition: Rule<FullTheme>[] = [
   [
     /^object-?(.+)$/,
     ([, v]: string[], { theme }) => {
@@ -130,7 +130,7 @@ export const objectPosition: Rule<Theme>[] = [
   ],
 ]
 
-export const overflow: Rule<Theme>[] = [
+export const overflow: Rule<FullTheme>[] = [
   ['overflow-auto', { overflow: 'auto' }],
   ['overflow-hidden', { overflow: 'hidden' }],
   ['overflow-clip', { overflow: 'clip' }],
@@ -148,7 +148,7 @@ export const overflow: Rule<Theme>[] = [
   ['overflow-y-scroll', { 'overflow-y': 'scroll' }],
 ]
 
-export const overscrollBehavior: Rule<Theme>[] = [
+export const overscrollBehavior: Rule<FullTheme>[] = [
   ['overscroll-auto', { 'overscroll-behavior': 'auto' }],
   ['overscroll-contain', { 'overscroll-behavior': 'contain' }],
   ['overscroll-none', { 'overscroll-behavior': 'none' }],
@@ -160,7 +160,7 @@ export const overscrollBehavior: Rule<Theme>[] = [
   ['overscroll-x-none', { 'overscroll-behavior-x': 'none' }],
 ]
 
-export const position: Rule<Theme>[] = [
+export const position: Rule<FullTheme>[] = [
   ['static', { position: 'static' }],
   ['fixed', { position: 'fixed' }],
   ['absolute', { position: 'absolute' }],
@@ -168,13 +168,13 @@ export const position: Rule<Theme>[] = [
   ['sticky', { position: 'sticky' }],
 ]
 
-export const visibility: Rule<Theme>[] = [
+export const visibility: Rule<FullTheme>[] = [
   ['visible', { visibility: 'visible' }],
   ['invisible', { visibility: 'hidden' }],
   ['collapse', { visibility: 'collapse' }],
 ]
 
-export const zIndex: Rule<Theme>[] = [
+export const zIndex: Rule<FullTheme>[] = [
   [
     /^z-?(.+)$/,
     ([, v]: string[], { theme }) => {
@@ -187,7 +187,7 @@ export const zIndex: Rule<Theme>[] = [
   ],
 ]
 
-export const flexBasic: Rule<Theme>[] = [
+export const flexBasic: Rule<FullTheme>[] = [
   [
     /^basis-?(.+)$/,
     ([, v]: string[], { theme }) => {
@@ -200,20 +200,20 @@ export const flexBasic: Rule<Theme>[] = [
   ],
 ]
 
-export const flexDirection: Rule<Theme>[] = [
+export const flexDirection: Rule<FullTheme>[] = [
   ['flex-row', { 'flex-direction': 'row' }],
   ['flex-row-reverse', { 'flex-direction': 'row-reverse' }],
   ['flex-col', { 'flex-direction': 'column' }],
   ['flex-col-reverse', { 'flex-direction': 'column-reverse' }],
 ]
 
-export const flexWrap: Rule<Theme>[] = [
+export const flexWrap: Rule<FullTheme>[] = [
   ['flex-wrap', { 'flex-wrap': 'wrap' }],
   ['flex-wrap-reverse', { 'flex-wrap': 'wrap-reverse' }],
   ['flex-nowrap', { 'flex-wrap': 'nowrap' }],
 ]
 
-export const flex: Rule<Theme>[] = [
+export const flex: Rule<FullTheme>[] = [
   [
     /^flex-?(.+)$/,
     ([, v]: string[], { theme }) => {
@@ -226,7 +226,7 @@ export const flex: Rule<Theme>[] = [
   ],
 ]
 
-export const flexGrow: Rule<Theme>[] = [
+export const flexGrow: Rule<FullTheme>[] = [
   [
     /^grow(?:-(.*))?$/,
     ([, v = 'DEFAULT'], { theme }) => {
@@ -239,7 +239,7 @@ export const flexGrow: Rule<Theme>[] = [
   ],
 ]
 
-export const flexShrink: Rule<Theme>[] = [
+export const flexShrink: Rule<FullTheme>[] = [
   [
     /^shrink(?:-(.*))?$/,
     ([, v = 'DEFAULT'], { theme }) => {

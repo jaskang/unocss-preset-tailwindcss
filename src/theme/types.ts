@@ -11,7 +11,7 @@ type ThemeColorValue = Record<
 type ThemeValue = Record<string, string>
 type ThemeArrayValue = Record<string, string | string[]>
 
-type BaseTheme = {
+export type BaseTheme = {
   colors: ThemeColorValue
   animation: ThemeValue
   aria: ThemeValue
@@ -86,7 +86,7 @@ type BaseTheme = {
   zIndex: ThemeValue
 }
 
-export type Theme = Expand<BaseTheme> & {
+export type FullTheme = Expand<BaseTheme> & {
   accentColor: ThemeColorValue
   backgroundColor: ThemeColorValue
   borderColor: ThemeColorValue
@@ -139,4 +139,4 @@ export type Theme = Expand<BaseTheme> & {
   maxWidth: ThemeValue
 }
 
-export type UserTheme = Partial<BaseTheme>
+export type Theme = Partial<BaseTheme>

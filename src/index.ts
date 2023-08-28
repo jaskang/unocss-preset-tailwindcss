@@ -10,11 +10,11 @@ export function presetTailwindcss() {
   return {
     name: 'unocss-preset-tailwindcss',
     theme: theme,
-    extendTheme: extendTheme as (t: Theme) => void,
+    extendTheme: extendTheme,
     rules: rules,
     shortcuts: shortcuts,
     variants: variants,
-  } as Preset<Partial<Theme>>
+  } as unknown as Preset<Partial<Theme>>
 }
 
 export default presetTailwindcss
