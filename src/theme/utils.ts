@@ -8,3 +8,11 @@ export function bracketValue(value: string) {
   }
   return null
 }
+
+export function maybeCustom(name: string, value: string) {
+  const val = bracketValue(value)
+  if (val)
+    return {
+      [name]: val,
+    }
+}
