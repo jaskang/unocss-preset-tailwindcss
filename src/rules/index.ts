@@ -13,6 +13,12 @@ import {
   clear,
   columns,
   display,
+  flex,
+  flexBasic,
+  flexDirection,
+  flexGrow,
+  flexShrink,
+  flexWrap,
   floats,
   isolation,
   objectFit,
@@ -25,6 +31,7 @@ import {
 } from './simples'
 
 export const rules: Rule<Theme>[] = [
+  // Layout
   ...aspectRatio,
   container,
   ...columns,
@@ -45,6 +52,13 @@ export const rules: Rule<Theme>[] = [
   ...inset,
   ...visibility,
   ...zIndex,
+  // Flexbox & Grid
+  ...flexBasic,
+  ...flexDirection,
+  ...flexWrap,
+  ...flex,
+  ...flexGrow,
+  ...flexShrink,
 ]
 
 export const shortcuts: Shortcut<Theme>[] = [containerShortcuts]

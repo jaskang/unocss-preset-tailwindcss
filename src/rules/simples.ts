@@ -186,3 +186,68 @@ export const zIndex: Rule<Theme>[] = [
     { autocomplete: ['z-$zIndex'] },
   ],
 ]
+
+export const flexBasic: Rule<Theme>[] = [
+  [
+    /^basis-?(.+)$/,
+    ([, v]: string[], { theme }) => {
+      if (theme.flexBasis[v]) {
+        return { 'flex-basis': theme.flexBasis[v] }
+      }
+      return maybeCustom('flex-basis', v)
+    },
+    { autocomplete: ['basis-$flexBasis'] },
+  ],
+]
+
+export const flexDirection: Rule<Theme>[] = [
+  ['flex-row', { 'flex-direction': 'row' }],
+  ['flex-row-reverse', { 'flex-direction': 'row-reverse' }],
+  ['flex-col', { 'flex-direction': 'column' }],
+  ['flex-col-reverse', { 'flex-direction': 'column-reverse' }],
+]
+
+export const flexWrap: Rule<Theme>[] = [
+  ['flex-wrap', { 'flex-wrap': 'wrap' }],
+  ['flex-wrap-reverse', { 'flex-wrap': 'wrap-reverse' }],
+  ['flex-nowrap', { 'flex-wrap': 'nowrap' }],
+]
+
+export const flex: Rule<Theme>[] = [
+  [
+    /^flex-?(.+)$/,
+    ([, v]: string[], { theme }) => {
+      if (theme.flex[v]) {
+        return { flex: theme.flex[v] }
+      }
+      return maybeCustom('flex', v)
+    },
+    { autocomplete: ['flex-$flex'] },
+  ],
+]
+
+export const flexGrow: Rule<Theme>[] = [
+  [
+    /^grow(?:-(.*))?$/,
+    ([, v = 'DEFAULT'], { theme }) => {
+      if (theme.flexGrow[v]) {
+        return { 'flex-grow': theme.flexGrow[v] }
+      }
+      return maybeCustom('flex-grow', v)
+    },
+    { autocomplete: ['grow', 'grow-$flexGrow'] },
+  ],
+]
+
+export const flexShrink: Rule<Theme>[] = [
+  [
+    /^shrink(?:-(.*))?$/,
+    ([, v = 'DEFAULT'], { theme }) => {
+      if (theme.flexShrink[v]) {
+        return { 'flex-shrink': theme.flexShrink[v] }
+      }
+      return maybeCustom('flex-shrink', v)
+    },
+    { autocomplete: ['shrink', 'shrink-$flexShrink'] },
+  ],
+]
