@@ -1,32 +1,11 @@
 import { type Rule } from '@unocss/core'
 
-import { type FullTheme, maybeCustom } from '../theme'
+import { type FullTheme } from '../theme'
+import { simpleRule, simpleRuleOptional } from '../theme/utils'
 
-export const aspectRatio: Rule<FullTheme>[] = [
-  [
-    /^aspect-?(.+)$/,
-    ([, v]: string[], { theme }) => {
-      if (theme.aspectRatio[v]) {
-        return { 'aspect-ratio': theme.aspectRatio[v] }
-      }
-      return maybeCustom('aspect-ratio', v)
-    },
-    { autocomplete: ['aspect-$aspectRatio'] },
-  ],
-]
+export const aspectRatio: Rule<FullTheme>[] = [simpleRule('aspect', 'aspectRatio')]
 
-export const columns: Rule<FullTheme>[] = [
-  [
-    /^columns-?(.+)$/,
-    ([, v]: string[], { theme }) => {
-      if (theme.columns[v]) {
-        return { columns: theme.columns[v] }
-      }
-      return maybeCustom('columns', v)
-    },
-    { autocomplete: ['columns-$columns'] },
-  ],
-]
+export const columns: Rule<FullTheme>[] = [simpleRule('columns', 'columns')]
 
 export const breakAfter: Rule<FullTheme>[] = [
   ['break-after-auto', { 'break-after': 'auto' }],
@@ -117,18 +96,7 @@ export const objectFit: Rule<FullTheme>[] = [
   ['object-scale-down', { 'object-fit': 'scale-down' }],
 ]
 
-export const objectPosition: Rule<FullTheme>[] = [
-  [
-    /^object-?(.+)$/,
-    ([, v]: string[], { theme }) => {
-      if (theme.objectPosition[v]) {
-        return { objectPosition: theme.objectPosition[v] }
-      }
-      return maybeCustom('objectPosition', v)
-    },
-    { autocomplete: ['columns-$objectPosition'] },
-  ],
-]
+export const objectPosition: Rule<FullTheme>[] = [simpleRule('object', 'objectPosition')]
 
 export const overflow: Rule<FullTheme>[] = [
   ['overflow-auto', { overflow: 'auto' }],
@@ -174,31 +142,9 @@ export const visibility: Rule<FullTheme>[] = [
   ['collapse', { visibility: 'collapse' }],
 ]
 
-export const zIndex: Rule<FullTheme>[] = [
-  [
-    /^z-?(.+)$/,
-    ([, v]: string[], { theme }) => {
-      if (theme.zIndex[v]) {
-        return { zIndex: theme.zIndex[v] }
-      }
-      return maybeCustom('zIndex', v)
-    },
-    { autocomplete: ['z-$zIndex'] },
-  ],
-]
+export const zIndex: Rule<FullTheme>[] = [simpleRule('z', 'zIndex')]
 
-export const flexBasic: Rule<FullTheme>[] = [
-  [
-    /^basis-?(.+)$/,
-    ([, v]: string[], { theme }) => {
-      if (theme.flexBasis[v]) {
-        return { 'flex-basis': theme.flexBasis[v] }
-      }
-      return maybeCustom('flex-basis', v)
-    },
-    { autocomplete: ['basis-$flexBasis'] },
-  ],
-]
+export const flexBasic: Rule<FullTheme>[] = [simpleRule('basis', 'flexBasis')]
 
 export const flexDirection: Rule<FullTheme>[] = [
   ['flex-row', { 'flex-direction': 'row' }],
@@ -213,41 +159,40 @@ export const flexWrap: Rule<FullTheme>[] = [
   ['flex-nowrap', { 'flex-wrap': 'nowrap' }],
 ]
 
-export const flex: Rule<FullTheme>[] = [
-  [
-    /^flex-?(.+)$/,
-    ([, v]: string[], { theme }) => {
-      if (theme.flex[v]) {
-        return { flex: theme.flex[v] }
-      }
-      return maybeCustom('flex', v)
-    },
-    { autocomplete: ['flex-$flex'] },
-  ],
+export const flex: Rule<FullTheme>[] = [simpleRule('flex', 'flex')]
+
+export const flexGrow: Rule<FullTheme>[] = [simpleRuleOptional('grow', 'flexGrow')]
+
+export const flexShrink: Rule<FullTheme>[] = [simpleRuleOptional('shrink', 'flexShrink')]
+
+export const order: Rule<FullTheme>[] = [simpleRule('order', 'order')]
+
+export const gridTemplateColumns: Rule<FullTheme>[] = [
+  simpleRule('grid-cols', 'gridTemplateColumns'),
 ]
 
-export const flexGrow: Rule<FullTheme>[] = [
-  [
-    /^grow(?:-(.*))?$/,
-    ([, v = 'DEFAULT'], { theme }) => {
-      if (theme.flexGrow[v]) {
-        return { 'flex-grow': theme.flexGrow[v] }
-      }
-      return maybeCustom('flex-grow', v)
-    },
-    { autocomplete: ['grow', 'grow-$flexGrow'] },
-  ],
+export const gridColumn: Rule<FullTheme>[] = [
+  simpleRule('col-start', 'gridColumnStart'),
+  simpleRule('col-end', 'gridColumnEnd'),
+  simpleRule('col', 'gridColumn'),
 ]
 
-export const flexShrink: Rule<FullTheme>[] = [
-  [
-    /^shrink(?:-(.*))?$/,
-    ([, v = 'DEFAULT'], { theme }) => {
-      if (theme.flexShrink[v]) {
-        return { 'flex-shrink': theme.flexShrink[v] }
-      }
-      return maybeCustom('flex-shrink', v)
-    },
-    { autocomplete: ['shrink', 'shrink-$flexShrink'] },
-  ],
+export const gridTemplateRows: Rule<FullTheme>[] = [simpleRule('grid-rows', 'gridTemplateRows')]
+
+export const gridRow: Rule<FullTheme>[] = [
+  simpleRule('row-start', 'gridRowStart'),
+  simpleRule('row-end', 'gridRowEnd'),
+  simpleRule('row', 'gridRow'),
 ]
+
+export const gridAutoFlow: Rule<FullTheme>[] = [
+  ['grid-flow-row', { 'grid-auto-flow': 'row' }],
+  ['grid-flow-col', { 'grid-auto-flow': 'column' }],
+  ['grid-flow-dense', { 'grid-auto-flow': 'dense' }],
+  ['grid-flow-row-dense', { 'grid-auto-flow': 'row dense' }],
+  ['grid-flow-col-dense', { 'grid-auto-flow': 'column dense' }],
+]
+
+export const gridAutoColumns: Rule<FullTheme>[] = [simpleRule('auto-cols', 'gridAutoColumns')]
+
+export const gridAutoRows: Rule<FullTheme>[] = [simpleRule('auto-rows', 'gridAutoRows')]
