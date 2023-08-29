@@ -93,13 +93,13 @@ I want developers to be able to focus on Tailwind's official documentation while
 - [x] Font Style
 - [x] Font Weight
 - [x] Font Variant Numeric
-- [] Letter Spacing
-- [] Line Clamp
-- [] Line Height
-- [] List Style Image
-- [] List Style Position
-- [] List Style Type
-- [] Text Align
+- [x] Letter Spacing
+- [x] Line Clamp
+- [x] Line Height
+- [x] List Style Image
+- [x] List Style Position
+- [x] List Style Type
+- [x] Text Align
 - [] Text Color
 - [] Text Decoration
 - [] Text Decoration Color

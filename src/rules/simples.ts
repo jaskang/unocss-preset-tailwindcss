@@ -1,7 +1,7 @@
 import { type Rule } from '@unocss/core'
 
 import { type FullTheme } from '../theme'
-import { maybeCustom, simpleRule, simpleRuleOptional } from '../theme/utils'
+import { bracketValue, maybeCustom, simpleRule, simpleRuleOptional } from '../theme/utils'
 
 export const aspectRatio: Rule<FullTheme>[] = [simpleRule('aspect', 'aspectRatio')]
 
@@ -358,4 +358,26 @@ export const fontVariantNumeric: Rule<FullTheme>[] = [
   ['tabular-nums', { 'font-variant-numeric': 'tabular-nums' }],
   ['diagonal-fractions', { 'font-variant-numeric': 'diagonal-fractions' }],
   ['stacked-fractions', { 'font-variant-numeric': 'stacked-fractions' }],
+]
+
+export const letterSpacing: Rule<FullTheme>[] = [simpleRule('tracking', 'letterSpacing')]
+
+export const lineHeight: Rule<FullTheme>[] = [simpleRule('leading', 'lineHeight')]
+
+export const listStyleImage: Rule<FullTheme>[] = [simpleRule('list', 'listStyleImage')]
+
+export const listStylePosition: Rule<FullTheme>[] = [
+  ['list-inside', { 'list-style-position': 'inside' }],
+  ['list-outside', { 'list-style-position': 'outside' }],
+]
+
+export const listStyleType: Rule<FullTheme>[] = [simpleRule('list', 'listStyleType')]
+
+export const textAlign: Rule<FullTheme>[] = [
+  ['text-left', { 'text-align': 'left' }],
+  ['text-center', { 'text-align': 'center' }],
+  ['text-right', { 'text-align': 'right' }],
+  ['text-justify', { 'text-align': 'justify' }],
+  ['text-start', { 'text-align': 'start' }],
+  ['text-end', { 'text-align': 'end' }],
 ]

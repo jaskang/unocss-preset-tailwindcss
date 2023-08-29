@@ -1,8 +1,10 @@
 import type { Rule, Shortcut } from '@unocss/core'
 
 import type { FullTheme } from '../theme'
+import { textColor } from './color'
 import { container, containerShortcuts } from './container'
 import { fontFamily, fontSize } from './font'
+import { lineClamp } from './line-clamp'
 import {
   alignContent,
   alignItems,
@@ -41,6 +43,11 @@ import {
   justifyContent,
   justifyItems,
   justifySelf,
+  letterSpacing,
+  lineHeight,
+  listStyleImage,
+  listStylePosition,
+  listStyleType,
   margin,
   objectFit,
   objectPosition,
@@ -52,6 +59,7 @@ import {
   placeItems,
   placeSelf,
   position,
+  textAlign,
   visibility,
   width,
   zIndex,
@@ -119,6 +127,14 @@ export const rules: Rule<FullTheme>[] = [
   ...fontStyle,
   ...fontWeight,
   ...fontVariantNumeric,
+  ...letterSpacing,
+  ...lineClamp,
+  ...lineHeight,
+  ...listStyleImage,
+  ...listStylePosition,
+  ...listStyleType,
+  ...textAlign,
+  // ...textColor
 ]
 
 export const shortcuts: Shortcut<FullTheme>[] = [containerShortcuts]
