@@ -51,48 +51,48 @@ I want developers to be able to focus on Tailwind's official documentation while
 - [x] Flex
 - [x] Flex Grow
 - [x] Flex Shrink
-- [] Order
-- [] Grid Template Columns
-- [] Grid Column Start / End
-- [] Grid Template Rows
-- [] Grid Row Start / End
-- [] Grid Auto Flow
-- [] Grid Auto Columns
-- [] Grid Auto Rows
-- [] Gap
-- [] Justify Content
-- [] Justify Items
-- [] Justify Self
-- [] Align Content
-- [] Align Items
-- [] Align Self
-- [] Place Content
-- [] Place Items
-- [] Place Self
+- [x] Order
+- [x] Grid Template Columns
+- [x] Grid Column Start / End
+- [x] Grid Template Rows
+- [x] Grid Row Start / End
+- [x] Grid Auto Flow
+- [x] Grid Auto Columns
+- [x] Grid Auto Rows
+- [x] Gap
+- [x] Justify Content
+- [x] Justify Items
+- [x] Justify Self
+- [x] Align Content
+- [x] Align Items
+- [x] Align Self
+- [x] Place Content
+- [x] Place Items
+- [x] Place Self
 
 ### Spacing
 
-- [] Padding
-- [] Margin
-- [] Space Between
+- [x] Padding
+- [x] Margin
+- [x] Space Between
 
 ### Sizing
 
-- [] Width
-- [] Min-Width
-- [] Max-Width
-- [] Height
-- [] Min-Height
-- [] Max-Height
+- [x] Width
+- [x] Min-Width
+- [x] Max-Width
+- [x] Height
+- [x] Min-Height
+- [x] Max-Height
 
 ### Typography
 
-- [] Font Family
-- [] Font Size
-- [] Font Smoothing
-- [] Font Style
-- [] Font Weight
-- [] Font Variant Numeric
+- [x] Font Family
+- [x] Font Size
+- [x] Font Smoothing
+- [x] Font Style
+- [x] Font Weight
+- [x] Font Variant Numeric
 - [] Letter Spacing
 - [] Line Clamp
 - [] Line Height
