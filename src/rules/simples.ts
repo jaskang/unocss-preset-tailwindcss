@@ -1,7 +1,7 @@
 import { type Rule } from '@unocss/core'
 
 import { type FullTheme } from '../theme'
-import { simpleRule, simpleRuleOptional } from '../theme/utils'
+import { maybeCustom, simpleRule, simpleRuleOptional } from '../theme/utils'
 
 export const aspectRatio: Rule<FullTheme>[] = [simpleRule('aspect', 'aspectRatio')]
 
@@ -319,4 +319,43 @@ export const margin: Rule<FullTheme>[] = [
   simpleRule('mb', 'margin', 'margin-bottom'),
   simpleRule('ms', 'margin', 'margin-inline-start'),
   simpleRule('me', 'margin', 'margin-inline-end'),
+]
+
+export const width: Rule<FullTheme>[] = [
+  simpleRule('w', 'width'),
+  simpleRule('min-w', 'minWidth'),
+  simpleRule('max-w', 'maxWidth'),
+]
+
+export const height: Rule<FullTheme>[] = [
+  simpleRule('h', 'height'),
+  simpleRule('min-h', 'minHeight'),
+  simpleRule('max-h', 'maxHeight'),
+]
+
+export const fontSmoothing: Rule<FullTheme>[] = [
+  [
+    'antialiased',
+    { '-webkit-font-smoothing': 'antialiased', '-moz-osx-font-smoothing': 'grayscale' },
+  ],
+  ['subpixel-antialiased', { '-webkit-font-smoothing': 'auto', '-moz-osx-font-smoothing': 'auto' }],
+]
+
+export const fontStyle: Rule<FullTheme>[] = [
+  ['italic', { 'font-style': 'italic' }],
+  ['not-italic', { 'font-style': 'normal' }],
+]
+
+export const fontWeight: Rule<FullTheme>[] = [simpleRule('font', 'fontWeight')]
+
+export const fontVariantNumeric: Rule<FullTheme>[] = [
+  ['normal-nums', { 'font-variant-numeric': 'normal' }],
+  ['ordinal', { 'font-variant-numeric': 'ordinal' }],
+  ['slashed-zero', { 'font-variant-numeric': 'slashed-zero' }],
+  ['lining-nums', { 'font-variant-numeric': 'lining-nums' }],
+  ['oldstyle-nums', { 'font-variant-numeric': 'oldstyle-nums' }],
+  ['proportional-nums', { 'font-variant-numeric': 'proportional-nums' }],
+  ['tabular-nums', { 'font-variant-numeric': 'tabular-nums' }],
+  ['diagonal-fractions', { 'font-variant-numeric': 'diagonal-fractions' }],
+  ['stacked-fractions', { 'font-variant-numeric': 'stacked-fractions' }],
 ]

@@ -12,7 +12,6 @@ export const spaceBetween: Rule<FullTheme>[] = [
     /^space-([xy])-(.+)$/,
     ([, d, v], { theme }) => {
       const [first, second] = d === 'x' ? ['left', 'right'] : ['top', 'bottom']
-      console.log(v, theme.space)
       const val = theme.space[v] || bracketValue(v)
       if (val) {
         return [

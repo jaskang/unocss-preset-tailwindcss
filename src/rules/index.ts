@@ -2,6 +2,7 @@ import type { Rule, Shortcut } from '@unocss/core'
 
 import type { FullTheme } from '../theme'
 import { container, containerShortcuts } from './container'
+import { fontFamily, fontSize } from './font'
 import {
   alignContent,
   alignItems,
@@ -22,6 +23,10 @@ import {
   flexShrink,
   flexWrap,
   floats,
+  fontSmoothing,
+  fontStyle,
+  fontVariantNumeric,
+  fontWeight,
   gap,
   gridAutoColumns,
   gridAutoFlow,
@@ -30,6 +35,7 @@ import {
   gridRow,
   gridTemplateColumns,
   gridTemplateRows,
+  height,
   inset,
   isolation,
   justifyContent,
@@ -47,6 +53,7 @@ import {
   placeSelf,
   position,
   visibility,
+  width,
   zIndex,
 } from './simples'
 import { spaceBetween } from './space'
@@ -103,6 +110,15 @@ export const rules: Rule<FullTheme>[] = [
   ...margin,
   ...spaceBetween,
   // Sizing
+  ...width,
+  ...height,
+  // Typography
+  ...fontFamily,
+  ...fontSize,
+  ...fontSmoothing,
+  ...fontStyle,
+  ...fontWeight,
+  ...fontVariantNumeric,
 ]
 
 export const shortcuts: Shortcut<FullTheme>[] = [containerShortcuts]

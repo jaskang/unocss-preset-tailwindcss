@@ -2,6 +2,13 @@ import type { CSSValues, Rule } from '@unocss/core'
 
 import type { FullTheme } from '.'
 
+/**
+ * Convert a `string` to space case.
+ */
+export function kebabCase(str: string): string {
+  return str.replace(/[A-Z]/g, m => `-${m.toLowerCase()}`)
+}
+
 // bracketValue('[16_,_9]') => `16 , 9`
 export function bracketValue(value: string) {
   if (value.startsWith('[') && value.endsWith(']')) {
@@ -11,13 +18,13 @@ export function bracketValue(value: string) {
   return null
 }
 
-// export function maybeCustom(name: string | string[], value: string) {
-//   const val = bracketValue(value)
-//   if (val) {
-//     const attrs = Array.isArray(name) ? name : [name]
-//     return attrs.map(k => [k, val]) as CSSValues
-//   }
-// }
+export function maybeCustom(name: string | string[], value: string) {
+  const val = bracketValue(value)
+  if (val) {
+    const attrs = Array.isArray(name) ? name : [name]
+    return attrs.map(k => [k, val]) as CSSValues
+  }
+}
 
 /**
  * 创建一个简单的规则，用于匹配 `^${prefix}-(.+)$` 的形式，然后将匹配到的值映射到 `theme[themeKey]` 中，如果没有找到，则将其作为自定义值。
@@ -29,18 +36,16 @@ export function bracketValue(value: string) {
 export function simpleRule(
   prefix: string,
   themeKey: keyof FullTheme,
-  cssKeys: string | string[] = ''
+  cssKeys: string | string[] = '',
+  allowCustom = true
 ): Rule<FullTheme> {
   return [
     new RegExp(`^${prefix}-(.+)$`),
     ([, v], { theme }) => {
-      const attrs = cssKeys
-        ? Array.isArray(cssKeys)
-          ? cssKeys
-          : [cssKeys]
-        : [themeKey.replace(/[A-Z]/g, m => `-${m.toLowerCase()}`)]
+      const attrs = cssKeys ? (Array.isArray(cssKeys) ? cssKeys : [cssKeys]) : [kebabCase(themeKey)]
       // @ts-expect-error
-      const val = theme[themeKey][v] || bracketValue(v)
+      const val = theme[themeKey][v] || (allowCustom ? bracketValue(v) : null)
+      // console.log('simpleRule', v, theme[themeKey], val)
       if (val) {
         return attrs.map(k => [k, val]) as CSSValues
       }
@@ -59,19 +64,15 @@ export function simpleRule(
 export function simpleRuleOptional(
   prefix: string,
   themeKey: keyof FullTheme,
-  cssKeys: string | string[] = ''
+  cssKeys: string | string[] = '',
+  allowCustom = true
 ): Rule<FullTheme> {
   return [
     new RegExp(`^${prefix}(?:-(.*))?$`),
     ([, v = 'DEFAULT'], { theme }) => {
-      const attrs = cssKeys
-        ? Array.isArray(cssKeys)
-          ? cssKeys
-          : [cssKeys]
-        : [themeKey.replace(/[A-Z]/g, m => `-${m.toLowerCase()}`)]
-
+      const attrs = cssKeys ? (Array.isArray(cssKeys) ? cssKeys : [cssKeys]) : [kebabCase(themeKey)]
       // @ts-expect-error
-      const val = theme[themeKey][v] || bracketValue(v)
+      const val = theme[themeKey][v] || (allowCustom ? bracketValue(v) : null)
       if (val) {
         return attrs.map(k => [k, val]) as CSSValues
       }

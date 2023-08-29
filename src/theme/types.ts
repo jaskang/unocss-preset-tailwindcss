@@ -33,8 +33,8 @@ export type BaseTheme = {
   flex: ThemeValue
   flexGrow: ThemeValue
   flexShrink: ThemeValue
-  fontFamily: ThemeArrayValue
-  fontSize: Record<string, [string, string]>
+  fontFamily: Record<string, string[]>
+  fontSize: Record<string, string | [string, string] | [string, Record<string, string>]>
   fontWeight: ThemeValue
   gradientColorStopPositions: ThemeValue
   grayscale: ThemeValue

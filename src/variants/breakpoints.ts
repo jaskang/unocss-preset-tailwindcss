@@ -13,7 +13,6 @@ export const breakpointsVariant: VariantObject<FullTheme> = {
       const [point, size, idx] = screen
       const m = matcher.slice(point.length + 1)
       const order = 1000 + idx + 1
-      // console.log('screen', screen, m, order, matcher)
       return {
         matcher: m,
         handle: (input, next) => {
