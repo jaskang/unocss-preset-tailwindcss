@@ -136,6 +136,18 @@ export const position: Rule<FullTheme>[] = [
   ['sticky', { position: 'sticky' }],
 ]
 
+export const inset: Rule<FullTheme>[] = [
+  simpleRule('inset-x', 'inset', ['left', 'right']),
+  simpleRule('inset-y', 'inset', ['top', 'bottom']),
+  simpleRule('inset', 'inset'),
+  simpleRule('start', 'inset', 'inset-inline-start'),
+  simpleRule('end', 'inset', 'inset-inline-end'),
+  simpleRule('top', 'inset', 'top'),
+  simpleRule('bottom', 'inset', 'bottom'),
+  simpleRule('left', 'inset', 'left'),
+  simpleRule('right', 'inset', 'right'),
+]
+
 export const visibility: Rule<FullTheme>[] = [
   ['visible', { visibility: 'visible' }],
   ['invisible', { visibility: 'hidden' }],
@@ -196,3 +208,115 @@ export const gridAutoFlow: Rule<FullTheme>[] = [
 export const gridAutoColumns: Rule<FullTheme>[] = [simpleRule('auto-cols', 'gridAutoColumns')]
 
 export const gridAutoRows: Rule<FullTheme>[] = [simpleRule('auto-rows', 'gridAutoRows')]
+
+export const gap: Rule<FullTheme>[] = [
+  simpleRule('gap', 'gap'),
+  simpleRule('gap-x', 'gap', 'column-gap'),
+  simpleRule('gap-y', 'gap', 'row-gap'),
+]
+
+export const justifyContent: Rule<FullTheme>[] = [
+  ['justify-normal', { 'justify-content': 'normal' }],
+  ['justify-start', { 'justify-content': 'flex-start' }],
+  ['justify-end', { 'justify-content': 'flex-end' }],
+  ['justify-center', { 'justify-content': 'center' }],
+  ['justify-between', { 'justify-content': 'space-between' }],
+  ['justify-around', { 'justify-content': 'space-around' }],
+  ['justify-evenly', { 'justify-content': 'space-evenly' }],
+  ['justify-stretch', { 'justify-content': 'stretch' }],
+]
+
+export const justifyItems: Rule<FullTheme>[] = [
+  ['justify-items-start', { 'justify-items': 'start' }],
+  ['justify-items-end', { 'justify-items': 'end' }],
+  ['justify-items-center', { 'justify-items': 'center' }],
+  ['justify-items-stretch', { 'justify-items': 'stretch' }],
+]
+
+export const justifySelf: Rule<FullTheme>[] = [
+  ['justify-self-auto', { 'justify-self': 'auto' }],
+  ['justify-self-start', { 'justify-self': 'start' }],
+  ['justify-self-end', { 'justify-self': 'end' }],
+  ['justify-self-center', { 'justify-self': 'center' }],
+  ['justify-self-stretch', { 'justify-self': 'stretch' }],
+]
+
+export const alignContent: Rule<FullTheme>[] = [
+  ['content-normal', { 'align-content': 'normal' }],
+  ['content-center', { 'align-content': 'center' }],
+  ['content-start', { 'align-content': 'flex-start' }],
+  ['content-end', { 'align-content': 'flex-end' }],
+  ['content-between', { 'align-content': 'space-between' }],
+  ['content-around', { 'align-content': 'space-around' }],
+  ['content-evenly', { 'align-content': 'space-evenly' }],
+  ['content-baseline', { 'align-content': 'baseline' }],
+  ['content-stretch', { 'align-content': 'stretch' }],
+]
+
+export const alignItems: Rule<FullTheme>[] = [
+  ['items-start', { 'align-items': 'flex-start' }],
+  ['items-end', { 'align-items': 'flex-end' }],
+  ['items-center', { 'align-items': 'center' }],
+  ['items-baseline', { 'align-items': 'baseline' }],
+  ['items-stretch', { 'align-items': 'stretch' }],
+]
+
+export const alignSelf: Rule<FullTheme>[] = [
+  ['self-auto', { 'align-self': 'auto' }],
+  ['self-start', { 'align-self': 'flex-start' }],
+  ['self-end', { 'align-self': 'flex-end' }],
+  ['self-center', { 'align-self': 'center' }],
+  ['self-stretch', { 'align-self': 'stretch' }],
+  ['self-baseline', { 'align-self': 'baseline' }],
+]
+
+export const placeContent: Rule<FullTheme>[] = [
+  ['place-content-center', { 'place-content': 'center' }],
+  ['place-content-start', { 'place-content': 'start' }],
+  ['place-content-end', { 'place-content': 'end' }],
+  ['place-content-between', { 'place-content': 'space-between' }],
+  ['place-content-around', { 'place-content': 'space-around' }],
+  ['place-content-evenly', { 'place-content': 'space-evenly' }],
+  ['place-content-baseline', { 'place-content': 'baseline' }],
+  ['place-content-stretch', { 'place-content': 'stretch' }],
+]
+
+export const placeItems: Rule<FullTheme>[] = [
+  ['place-items-start', { 'place-items': 'start' }],
+  ['place-items-end', { 'place-items': 'end' }],
+  ['place-items-center', { 'place-items': 'center' }],
+  ['place-items-baseline', { 'place-items': 'baseline' }],
+  ['place-items-stretch', { 'place-items': 'stretch' }],
+]
+
+export const placeSelf: Rule<FullTheme>[] = [
+  ['place-self-auto', { 'place-self': 'auto' }],
+  ['place-self-start', { 'place-self': 'start' }],
+  ['place-self-end', { 'place-self': 'end' }],
+  ['place-self-center', { 'place-self': 'center' }],
+  ['place-self-stretch', { 'place-self': 'stretch' }],
+]
+
+export const padding: Rule<FullTheme>[] = [
+  simpleRule('p', 'padding'),
+  simpleRule('px', 'padding', ['padding-left', 'padding-right']),
+  simpleRule('py', 'padding', ['padding-top', 'padding-bottom']),
+  simpleRule('pl', 'padding', 'padding-left'),
+  simpleRule('pr', 'padding', 'padding-right'),
+  simpleRule('pt', 'padding', 'padding-top'),
+  simpleRule('pb', 'padding', 'padding-bottom'),
+  simpleRule('ps', 'padding', 'padding-inline-start'),
+  simpleRule('pe', 'padding', 'padding-inline-end'),
+]
+
+export const margin: Rule<FullTheme>[] = [
+  simpleRule('m', 'margin'),
+  simpleRule('mx', 'margin', ['margin-left', 'margin-right']),
+  simpleRule('my', 'margin', ['margin-top', 'margin-bottom']),
+  simpleRule('ml', 'margin', 'margin-left'),
+  simpleRule('mr', 'margin', 'margin-right'),
+  simpleRule('mt', 'margin', 'margin-top'),
+  simpleRule('mb', 'margin', 'margin-bottom'),
+  simpleRule('ms', 'margin', 'margin-inline-start'),
+  simpleRule('me', 'margin', 'margin-inline-end'),
+]

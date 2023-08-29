@@ -2,8 +2,10 @@ import type { Rule, Shortcut } from '@unocss/core'
 
 import type { FullTheme } from '../theme'
 import { container, containerShortcuts } from './container'
-import { inset } from './inset'
 import {
+  alignContent,
+  alignItems,
+  alignSelf,
   aspectRatio,
   boxDecorationBreak,
   boxSizing,
@@ -20,6 +22,7 @@ import {
   flexShrink,
   flexWrap,
   floats,
+  gap,
   gridAutoColumns,
   gridAutoFlow,
   gridAutoRows,
@@ -27,16 +30,26 @@ import {
   gridRow,
   gridTemplateColumns,
   gridTemplateRows,
+  inset,
   isolation,
+  justifyContent,
+  justifyItems,
+  justifySelf,
+  margin,
   objectFit,
   objectPosition,
   order,
   overflow,
   overscrollBehavior,
+  padding,
+  placeContent,
+  placeItems,
+  placeSelf,
   position,
   visibility,
   zIndex,
 } from './simples'
+import { spaceBetween } from './space'
 
 export const rules: Rule<FullTheme>[] = [
   // Layout
@@ -75,6 +88,21 @@ export const rules: Rule<FullTheme>[] = [
   ...gridAutoFlow,
   ...gridAutoColumns,
   ...gridAutoRows,
+  ...gap,
+  ...justifyContent,
+  ...justifyItems,
+  ...justifySelf,
+  ...alignContent,
+  ...alignItems,
+  ...alignSelf,
+  ...placeContent,
+  ...placeItems,
+  ...placeSelf,
+  // Spacing
+  ...padding,
+  ...margin,
+  ...spaceBetween,
+  // Sizing
 ]
 
 export const shortcuts: Shortcut<FullTheme>[] = [containerShortcuts]

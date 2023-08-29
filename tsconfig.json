@@ -2,6 +2,7 @@
   "include": ["env.d.ts", "src/**/*", "test/**/*"],
   "extends": ["@jaskang/config/tsconfig.json"],
   "compilerOptions": {
+    "lib": ["esnext", "dom"],
     "types": ["node", "vitest/importMeta", "vitest/globals"]
   }
 }
