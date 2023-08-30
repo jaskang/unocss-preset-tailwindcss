@@ -1,18 +1,36 @@
 # unocss-preset-tailwindcss (WIP)
 
-A unocss preset that aligns with the official features of Tailwind, emphasizing consistency.
+A unocss preset that aligns with Tailwind CSS.
 
-The goal is to seamlessly switch projects using Tailwind to unocss-preset-tailwindcss.
+Aims to provide a seamless transition for Tailwind users to unocss-preset-tailwindcss.
 
-check out : [English](./README.md) | [中文](./README.zh-CN.md)
+Switch language: [English](./README.md) | [中文](./README.zh-CN.md)
 
-# Why
+## Why
 
-Tailwind encompasses a set of highly standardized design specifications that I can't live without after using it. However, it lacks speed and feels a bit cumbersome.
+unocss is fast, has a great VS Code plugin, and integrates better with frontend toolchains. However, the official built-in preset-wind for unocss does not strictly follow Tailwind's rules, it's too flexible and lacks rule documentation.
 
-Unocss, on the other hand, is fast and integrates better with the frontend toolchain. However, the official `preset-wind` doesn't strictly adhere to Tailwind's rules; it's a mishmash that feels quite loose.
+Tailwind includes a set of very high design standards, which ensures that my pages look good even without a designer's involvement.
 
-I want developers to be able to focus on Tailwind's official documentation while enjoying the advantages of unocss.
+I want developers to focus only on Tailwind's official documentation while enjoying the excellent experience provided by unocss.
+
+For example:
+
+> In `preset-wind`, `m<num>` and `m-<num>` are the same, and `<num>` can have any value. In `Tailwind`, there are fixed specifications, and only `m-[5px]` is considered a user-defined value.
+
+```html
+<!-- unocss preset-wind -->
+<div class="m-6 m5"></div>
+<!-- output -->
+<style>
+  .m-6 {
+    margin: 1.5rem;
+  }
+  .m5 {
+    margin: 1.25rem;
+  }
+</style>
+```
 
 ## Progress
 

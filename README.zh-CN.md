@@ -1,18 +1,36 @@
 # unocss-preset-tailwindcss (WIP)
 
-一个与 tailwind 官方特性保持一致的 unocss preset，重点在于保持一致性。
+一个与 tailwind 保持一致的 unocss preset
 
-需要尽可能做到使用 tailwind 的项目能够无缝切换到 unocss-preset-tailwindcss 。
+尽可能的保证 tailwind 用户能够无缝切换到 unocss-preset-tailwindcss
 
-切换语言 : [English](./README.md) | [中文](./README.zh-CN.md)
+切换语言: [English](./README.md) | [中文](./README.zh-CN.md)
 
-# 为什么
+## 为什么
 
-tailwind 包含了一套非常高标准的设计规范，使用过后我已经离不开它。但它不够快，略显笨重。
+unocss 很快，有着体验很好的 vscode 插件并且和前端工具链集成得更好。但官方的内置 preset-wind 没有严格遵循 tailwind 的规则，太过自由且缺少 rule 文档。
 
-unocss 很快，和前端工具链集成得更好。但官方的 `preset-wind` 没有严格遵循 tailwind 的规则，而是一个大杂烩，显得非常松散。
+tailwind 包含了一套非常高标准的设计规范，能保障在没有设计师参与的情况下我的页面也能美观。
 
-我希望开发者只需要关注 tailwind 的官方文档，但同时又能享受到 unocss 的优势。
+我希望开发者只需要关注 tailwind 的官方文档，但同时又能享受到 unocss 的优质体验。
+
+例如:
+
+> 在 `preset-wind` 中 `m<num>` 与 `m-<num>` 是一样的，且 `<num>` 支持任意值， 而 tailwind 中有固定的规范，只有 `m-[5px]` 才是用户自定义的值。
+
+```html
+<!-- unocss preset-wind -->
+<div class="m-6 m5"></div>
+<!-- output -->
+<style>
+  .m-6 {
+    margin: 1.5rem;
+  }
+  .m5 {
+    margin: 1.25rem;
+  }
+</style>
+```
 
 ## 进展
 
