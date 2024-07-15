@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@unocss/core": "^0.61.3",
+    "@unocss/rule-utils": "^0.61.3",
     "dlv": "^1.1.3",
     "kotl": "^2.1.4"
   },
